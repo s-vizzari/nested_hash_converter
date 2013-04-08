@@ -11,6 +11,14 @@ module.exports = function(grunt) {
       }
     },
 
+    mkdir: {
+      all: {
+        options: {
+          create: ['tmp']
+        }
+      }
+    },
+
     clientside: {
       main: {
         main: 'lib/nested-hash-converter.js',
@@ -34,8 +42,9 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-jasmine');
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-clientside');
+  grunt.loadNpmTasks('grunt-mkdir');
 
-  grunt.registerTask('test', ['jshint', 'clientside', 'jasmine', 'clean']);
+  grunt.registerTask('test', ['jshint', 'mkdir', 'clientside', 'jasmine', 'clean']);
 
   grunt.registerTask('default', ['test']);
 
