@@ -3,20 +3,14 @@
   "version": "1.0.0",
   "description": "Builds and converts nested hashes",
   "main": "lib/nested-hash-converter.js",
-  "dependencies": {
-    "cldr-plurals": "~1.0",
-    "jquery": "~1.7",
-    "handlebars": "~1.0",
-    "ember": "~0.9.7"
-  },
+  "dependencies": {},
   "devDependencies": {
-    "jshint": "~1.1.0",
     "testem": "~0.2.81",
     "grunt": "~0.4.1",
-    "grunt-clientside": "~0.2.0"
+    "grunt-contrib-jshint": "~0.4.1"
   },
   "scripts": {
-    "test": "./node_modules/.bin/testem ci"
+    "test": "node_modules/.bin/testem ci"
   },
   "repository": {
     "type": "git",
