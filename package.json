@@ -5,12 +5,14 @@
   "main": "lib/nested-hash-converter.js",
   "dependencies": {},
   "devDependencies": {
-    "testem": "~0.2.81",
     "grunt": "~0.4.1",
-    "grunt-contrib-jshint": "~0.4.1"
+    "grunt-contrib-jshint": "~0.4.1",
+    "grunt-contrib-jasmine": "~0.4.2",
+    "grunt-clientside": "~0.2.0",
+    "grunt-contrib-clean": "~0.4.0"
   },
   "scripts": {
-    "test": "node_modules/.bin/testem ci"
+    "test": "grunt test"
   },
   "repository": {
     "type": "git",

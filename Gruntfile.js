@@ -1,42 +1,42 @@
-/*globals module*/
+/*global module*/
 module.exports = function(grunt) {
   "use_strict";
 
   grunt.initConfig({
 
     jshint: {
-      all: ['grunt.js', 'lib/**/*.js', 'spec/**/*[sS]pec.js'],
-
+      all: ['Gruntfile.js', 'spec/**/*.js', 'lib/**/*.js'],
       options: {
-        bitwise:        true,
-        curly:          true,
-        eqeqeq:         true,
-        forin:          true,
-        immed:          true,
-        indent:         2,
-        latedef:        true,
-        newcap:         true,
-        noarg:          true,
-        noempty:        true,
-        regexp:         true,
-        undef:          true,
-        unused:         true,
-        strict:         true,
-        trailing:       true,
-        maxparams:      4,
-        maxdepth:       4,
-        maxstatements:  40,
-        maxcomplexity:  40,
-        maxlen:         120,
-
-        eqnull:         true
+        jshintrc: '.jshintrc'
       }
-    }
+    },
+
+    clientside: {
+      main: {
+        main: 'lib/nested-hash-converter.js',
+        name: 'lib/nested-hash-converter',
+        output: 'tmp/bundle.js'
+      }
+    },
+
+    jasmine: {
+      src : 'tmp/bundle.js',
+      options : {
+        specs : 'spec/**/*.js'
+      }
+    },
+
+    clean: ['tmp/']
 
   });
 
   grunt.loadNpmTasks('grunt-contrib-jshint');
+  grunt.loadNpmTasks('grunt-contrib-jasmine');
+  grunt.loadNpmTasks('grunt-contrib-clean');
+  grunt.loadNpmTasks('grunt-clientside');
 
-  grunt.registerTask('default', 'jshint');
+  grunt.registerTask('test', ['jshint', 'clientside', 'jasmine', 'clean']);
+
+  grunt.registerTask('default', ['test']);
 
 };
